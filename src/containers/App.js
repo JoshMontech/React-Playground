@@ -5,14 +5,37 @@ import Cockpit from "../components/Cockpit/Cockpit";
 
 
 class App extends Component {
-  state = {
-    persons: [
-      { id: "asdfa", name: "Josh", age: 23 },
-      { id: "fffme", name: "Carla", age: 23 },
-      { id: "boiyo", name: "Daniel", age: 28 }
-    ],
-    showPersons: false
-  };
+  constructor(props) {
+    super(props);
+    console.log('[App.js] Inside Constructor', props);
+    this.state = {
+      persons: [
+        { id: "asdfa", name: "Josh", age: 23 },
+        { id: "fffme", name: "Carla", age: 23 },
+        { id: "boiyo", name: "Daniel", age: 28 }
+      ],
+      showPersons: false
+    };
+  }
+
+  componentWillMount() {
+    console.log('[App.js] Inside componentWillMount()');
+  }
+
+  componentDidMount() {
+    console.log('[App.js] inside componentdidMount()');
+  }
+
+
+
+  // state = {
+  //   persons: [
+  //     { id: "asdfa", name: "Josh", age: 23 },
+  //     { id: "fffme", name: "Carla", age: 23 },
+  //     { id: "boiyo", name: "Daniel", age: 28 }
+  //   ],
+  //   showPersons: false
+  // };
 
   nameChangedHandler = (event, id) => {
     // manipulating a person object's 'name' value
@@ -48,7 +71,7 @@ class App extends Component {
   };
 
   render() {
-
+    console.log("[App.js] inside render()");
     let persons = null;
 
     if (this.state.showPersons) {
